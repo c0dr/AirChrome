@@ -1,4 +1,7 @@
 var chromecasts = require('chromecasts')();
+var NodeTunes = require('nodetunes');
+var Nicercast = require('nicercast');
+
 
 console.log('Searching for Chromecast devices on network...');
 
@@ -12,6 +15,8 @@ chromecasts.on('update', function (player) {
 
     var airplayServer = new NodeTunes({
           serverName: device.name + ' (AirChrome)',
+          verbose: false,
+          controlTimeout: 5
         });
 
         var clientName = 'AirChrome';
